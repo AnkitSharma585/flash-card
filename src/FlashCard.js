@@ -10,13 +10,14 @@ function FlashCard({ questions }) {
   };
 
   const renderQuestions = questions.map((question) => {
+    const isOpen = cardId === question.id;
     return (
       <div
-        className={cardId === question.id ? 'selected' : ''}
+        className={isOpen ? 'selected' : ''}
         onClick={() => handleClick(question.id)}
         key={question.id}
       >
-        {cardId === question.id ? question.answer : question.question}
+        {isOpen ? question.answer : question.question}
       </div>
     );
   });
